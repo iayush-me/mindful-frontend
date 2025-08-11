@@ -21,7 +21,7 @@ const ReminderSettings = () => {
 
   useEffect(() => {
     // Fetch current reminder settings on component mount
-    axios.get("http://localhost:8080/user/profile", {
+    axios.get(`${process.env.REACT_APP_PUBLIC_BACKEND_URL}/user/profile`, {
       headers: { Authorization: "Bearer " + localStorage.getItem("token") }
     })
     .then(res => {
@@ -54,7 +54,7 @@ const ReminderSettings = () => {
     setLoading(true);
     setMsg("");
     try {
-      await axios.patch("http://localhost:8080/user/reminder", 
+      await axios.patch(`${process.env.REACT_APP_PUBLIC_BACKEND_URL}/user/reminder`, 
         {
           reminderEnabled: enabled,
           reminderTime: time

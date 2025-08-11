@@ -42,7 +42,7 @@ const Dashboard = () => {
       setTasksError(null);
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:8080/schedule/today", {
+        const res = await axios.get(`${process.env.REACT_APP_PUBLIC_BACKEND_URL}/schedule/today`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTodayTasks(res.data.tasks || []);

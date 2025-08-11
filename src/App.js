@@ -33,7 +33,7 @@ function App() {
     // Fetch scheduled breaks on startup if user is logged in
     const token = localStorage.getItem("token");
     if (token) {
-      fetch("http://localhost:8080/schedule", {
+      fetch(`${process.env.REACT_APP_PUBLIC_BACKEND_URL}/schedule`, {
         headers: { Authorization: "Bearer " + token },
       })
         .then((res) => res.json())

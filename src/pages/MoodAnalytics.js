@@ -85,7 +85,7 @@ const MoodAnalytics = () => {
     setError("");
     setLoading(true);
     axios
-      .get("http://localhost:8080/mood-history", {
+      .get(`${process.env.REACT_APP_PUBLIC_BACKEND_URL}/mood-history`, {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       })
       .then((res) => {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:8080', // or your API base
+  baseURL: process.env.REACT_APP_PUBLIC_BACKEND_URL, // or your API base
 });
 
 // Add the token automatically to every request
